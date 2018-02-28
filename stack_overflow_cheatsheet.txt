@@ -1,0 +1,38 @@
+GUI-based search queries
+-------------------------
+
+# Advanced search features:
+https://stackoverflow.com/search
+
+# Find all open questions with no answers which aren't duplicates:
+answers:0 closed:no duplicate:no
+
+# Narrow resuls by author:
+user:me
+
+
+
+
+Data Explorer SQL queries
+-------------------------
+
+# Switch between SE sites by changing the URL:
+https://data.stackexchange.com/<site_name>/
+
+# Search the comments by text and user ID:
+
+SELECT Id AS [Comment Link], Score, Text 
+  FROM Comments 
+ WHERE UPPER(Text) LIKE UPPER('%##CommentText##%')
+   AND UserId = '##UserId##'
+ ORDER BY Score DESC
+
+# The same as above but for multiple keywords:
+
+SELECT Id AS [Comment Link], Score, Text 
+  FROM Comments 
+ WHERE (UPPER(Text) LIKE UPPER('%##CommentText##%')
+   AND UPPER(Text) LIKE UPPER('%##CommentText2##%'))
+   AND UserId = '##UserId##'
+ ORDER BY Score DESC
+
